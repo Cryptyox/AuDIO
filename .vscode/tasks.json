@@ -9,9 +9,9 @@
                 "/Zi",
                 "/EHsc",
                 "/nologo",
-                "/Fe:",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
+                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}",
+                "display.cpp"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -23,7 +23,20 @@
                 "kind": "build",
                 "isDefault": true
             },
+            "dependsOn": ["cleanup"],
             "detail": "compiler: cl.exe"
+        },
+        {
+            "label": "cleanup",
+            "type": "shell",
+            "command": "Remove-Item",
+            "args": [
+                "-Force",
+                "-ErrorAction",
+                "SilentlyContinue",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "problemMatcher": []
         },
         {
             "type": "cppbuild",
