@@ -5,6 +5,6 @@
 #include "config.h"
 
 class Sorter {
-public:
+    public:
     static void run(const Config& config);
 };

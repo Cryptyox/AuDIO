@@ -1,5 +1,6 @@
 #include "display.h"
 #include "config.h"
+#include "sorter.h"
 
 int main() {
     Config config;
@@ -21,9 +22,9 @@ int main() {
                 Display::devOptions(config);
                 break;
             case '4':
-                running = false;
                 Display::showFinalConfig(config);
                 Sorter::run(config);
+                running = false;
                 break;
             default:
                 break;
